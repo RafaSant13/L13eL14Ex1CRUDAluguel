@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LivroFragment">
+
+    <EditText
+        android:id="@+id/etCodigoLivro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="23dp"
+        android:ems="10"
+        android:hint="@string/codigo"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@+id/btnBuscarLivro"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etNomeLivro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:ems="10"
+        android:hint="@string/nome"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/etQtdPaginasLivro"
+        app:layout_constraintStart_toStartOf="@+id/etQtdPaginasLivro"
+        app:layout_constraintTop_toBottomOf="@+id/etCodigoLivro" />
+
+    <EditText
+        android:id="@+id/etQtdPaginasLivro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="@string/qtd"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/etIsbnLivro"
+        app:layout_constraintStart_toStartOf="@+id/etIsbnLivro"
+        app:layout_constraintTop_toBottomOf="@+id/etNomeLivro" />
+
+    <EditText
+        android:id="@+id/etIsbnLivro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="41dp"
+        android:ems="10"
+        android:hint="@string/isbn"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/etEdicaoLivro"
+        app:layout_constraintStart_toStartOf="@+id/etEdicaoLivro"
+        app:layout_constraintTop_toBottomOf="@+id/etQtdPaginasLivro" />
+
+    <EditText
+        android:id="@+id/etEdicaoLivro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:hint="@string/edicao"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etIsbnLivro" />
+
+    <Button
+        android:id="@+id/btnBuscarLivro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="2dp"
+        android:text="@string/buscar"
+        app:layout_constraintBottom_toBottomOf="@+id/etCodigoLivro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/etCodigoLivro" />
+
+    <Button
+        android:id="@+id/btnInserirLivro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
+        android:layout_marginBottom="33dp"
+        android:text="@string/inserir"
+        app:layout_constraintBottom_toTopOf="@+id/btnExcluirLivro"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnAlterarLivro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="33dp"
+        android:text="@string/alterar"
+        app:layout_constraintBottom_toTopOf="@+id/btnListarLivro"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btnExcluirLivro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="136dp"
+        android:text="@string/excluir"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnInserirLivro"
+        app:layout_constraintStart_toStartOf="@+id/etEdicaoLivro" />
+
+    <Button
+        android:id="@+id/btnListarLivro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="11dp"
+        android:text="@string/listar"
+        app:layout_constraintBottom_toTopOf="@+id/tvLivro"
+        app:layout_constraintEnd_toEndOf="@+id/btnAlterarLivro"
+        app:layout_constraintStart_toStartOf="@+id/btnAlterarLivro" />
+
+    <TextView
+        android:id="@+id/tvLivro"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="11dp"
+        android:scrollbars="vertical"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnExcluirLivro" />
+</androidx.constraintlayout.widget.ConstraintLayout>

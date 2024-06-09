@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RevistaFragment">
+
+
+    <EditText
+        android:id="@+id/etCodigoRevista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="17dp"
+        android:ems="10"
+        android:hint="@string/codigo"
+        android:inputType="number"
+        app:layout_constraintEnd_toStartOf="@+id/btnBuscarRevista"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etNomeRevista"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:hint="@string/nome"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/etIssnRevista"
+        app:layout_constraintStart_toStartOf="@+id/etCodigoRevista"
+        app:layout_constraintTop_toBottomOf="@+id/btnBuscarRevista" />
+
+    <EditText
+        android:id="@+id/etQtdPaginasRevista"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="47dp"
+        android:ems="10"
+        android:hint="@string/qtd"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNomeRevista" />
+
+    <EditText
+        android:id="@+id/etIssnRevista"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="33dp"
+        android:ems="10"
+        android:hint="@string/issn"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/btnInserirRevista"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etQtdPaginasRevista" />
+
+    <Button
+        android:id="@+id/btnBuscarRevista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/buscar"
+        app:layout_constraintBaseline_toBaselineOf="@+id/etCodigoRevista"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/etCodigoRevista" />
+
+    <Button
+        android:id="@+id/btnInserirRevista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="316dp"
+        android:text="@string/inserir"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnAlterarRevista"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etIssnRevista" />
+
+    <Button
+        android:id="@+id/btnAlterarRevista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="44dp"
+        android:text="@string/alterar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etIssnRevista"
+        app:layout_constraintVertical_bias="0.017" />
+
+    <Button
+        android:id="@+id/btnExcluirRevista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="240dp"
+        android:text="@string/excluir"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnInserirRevista"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/etIssnRevista" />
+
+    <Button
+        android:id="@+id/btnListarRevista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/listar"
+        app:layout_constraintEnd_toEndOf="@+id/btnAlterarRevista"
+        app:layout_constraintTop_toBottomOf="@+id/btnAlterarRevista" />
+
+    <TextView
+        android:id="@+id/tvRevista"
+        android:layout_width="407dp"
+        android:layout_height="231dp"
+        android:layout_marginTop="8dp"
+        android:scrollbars="vertical"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnExcluirRevista" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
