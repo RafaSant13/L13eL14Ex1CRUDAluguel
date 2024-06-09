@@ -27,6 +27,6 @@ public class Livro extends Exemplar {
 
     @Override
     public String toString() {
-        return "Livro #"+getCodigo()+" "+getNome()+" "+edicao+"ª Edição";
+        return "#"+getCodigo()+" "+getNome()+" "+edicao+"ª Edição";
     }
 }

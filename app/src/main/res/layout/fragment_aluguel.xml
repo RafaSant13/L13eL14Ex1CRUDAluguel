@@ -47,12 +47,14 @@
         android:id="@+id/etDevolucao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="300dp"
         android:ems="10"
+        android:hint="@string/dataDevolucao"
         android:inputType="date"
-        app:layout_constraintStart_toStartOf="@+id/etRetirada"
-        app:layout_constraintTop_toBottomOf="@+id/etRetirada"
-        tools:hint="@string/dataDevolucao" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnBuscarAluguel"
@@ -68,18 +70,20 @@
         android:id="@+id/btnInserirAluguel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="62dp"
+        android:layout_marginStart="68dp"
         android:layout_marginTop="37dp"
         android:text="@string/inserir"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDevolucao" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.53" />
 
     <Button
         android:id="@+id/btnAlterarAluguel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="68dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/alterar"
         app:layout_constraintBottom_toTopOf="@+id/btnListarAluguel"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -99,21 +103,24 @@
         android:id="@+id/btnListarAluguel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="13dp"
+        android:layout_marginEnd="76dp"
         android:text="@string/listar"
-        app:layout_constraintBottom_toTopOf="@+id/tvAluguel"
-        app:layout_constraintEnd_toEndOf="@+id/btnAlterarAluguel" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.661" />
 
     <TextView
         android:id="@+id/tvAluguel"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="13dp"
+        android:layout_width="410dp"
+        android:layout_height="190dp"
         android:scrollbars="vertical"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnExcluirAluguel" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.994" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.l13el14crudaluguel.controller.LivroController;
+import com.example.l13el14crudaluguel.model.Aluno;
+import com.example.l13el14crudaluguel.model.Livro;
+import com.example.l13el14crudaluguel.persistance.LivroDao;
+
+import java.sql.SQLException;
+import java.util.List;
 
 public class LivroFragment extends Fragment {
 
@@ -26,7 +35,7 @@ public class LivroFragment extends Fragment {
     private Button btnExcluirLivro;
     private Button btnListarLivro;
     private TextView tvLivro;
-
+    private LivroController lc;
 
     public LivroFragment() {
         super();
@@ -48,31 +57,113 @@ public class LivroFragment extends Fragment {
         btnListarLivro = view.findViewById(R.id.btnListarLivro);
         tvLivro = view.findViewById(R.id.tvLivro);
         tvLivro.setMovementMethod(new ScrollingMovementMethod());
-        btnInserirLivro.setOnClickListener(op -> inserir());
-        btnBuscarLivro.setOnClickListener(op -> buscar());
-        btnAlterarLivro.setOnClickListener(op -> alterar());
-        btnExcluirLivro.setOnClickListener(op -> excluir());
-        btnListarLivro.setOnClickListener(op -> listar());
+        lc = new LivroController(new LivroDao(view.getContext()));
+        btnInserirLivro.setOnClickListener(op -> {
+            try {
+                inserir();
+            } catch (SQLException e) {
+                Toast.makeText(view.getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+        btnBuscarLivro.setOnClickListener(op -> {
+            try {
+                buscar();
+            } catch (SQLException e) {
+                Toast.makeText(view.getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+        btnAlterarLivro.setOnClickListener(op -> {
+            try {
+                alterar();
+            } catch (SQLException e) {
+                Toast.makeText(view.getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+        btnExcluirLivro.setOnClickListener(op -> {
+            try {
+                excluir();
+            } catch (SQLException e) {
+                Toast.makeText(view.getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+        btnListarLivro.setOnClickListener(op -> {
+            try {
+                listar();
+            } catch (SQLException e) {
+                Toast.makeText(view.getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
         return view;
     }
 
-    private void inserir() {
-
+    private void inserir() throws SQLException {
+        Livro l = montaLivro();
+        lc.insert(l);
+        Toast.makeText(view.getContext(), "Livro inserido com sucesso!", Toast.LENGTH_LONG).show();
+        limpaCampos();
     }
 
-    private void buscar() {
-
+    private void buscar() throws SQLException {
+        Livro l = montaLivro();
+        l =lc.findOne(l);
+        preencheCampos(l);
     }
 
-    private void alterar() {
-
+    private void alterar() throws SQLException {
+        Livro l = montaLivro();
+        lc.update(l);
+        Toast.makeText(view.getContext(), "Livro alterado com sucesso!", Toast.LENGTH_LONG).show();
+        limpaCampos();
     }
 
-    private void excluir() {
-
+    private void excluir() throws SQLException {
+        Livro l = montaLivro();
+        lc.delete(l);
+        Toast.makeText(view.getContext(), "Livro excluído com sucesso!", Toast.LENGTH_LONG).show();
+        limpaCampos();
     }
 
-    private void listar() {
+    private void listar() throws SQLException {
+        List<Livro> livros = lc.findAll();
+        StringBuffer buffer = new StringBuffer();
+        for (Livro l : livros){
+            buffer.append(l.toString()+"\n");
+        }
+        tvLivro.setText(buffer.toString());
+    }
 
+    private Livro montaLivro(){
+        Livro l = new Livro();
+        l.setCodigo(Integer.parseInt(etCodigoLivro.getText().toString()));
+        l.setNome(etNomeLivro.getText().toString());
+        if (etQtdPaginasLivro.getText().toString().equals("")){
+            l.setQtdPaginas(0);
+        } else {
+            l.setQtdPaginas(Integer.parseInt(etQtdPaginasLivro.getText().toString()));
+        }
+        l.setISBN(etIsbnLivro.getText().toString());
+        if (etEdicaoLivro.getText().toString().equals("")){
+            l.setEdicao(0);
+        } else {
+            l.setEdicao(Integer.parseInt(etEdicaoLivro.getText().toString()));
+        }
+        return l;
+    }
+
+    private void preencheCampos(Livro l){
+        etCodigoLivro.setText(String.valueOf(l.getCodigo()));
+        etNomeLivro.setText(l.getNome());
+        etQtdPaginasLivro.setText(String.valueOf(l.getQtdPaginas()));
+        etIsbnLivro.setText(l.getISBN());
+        etEdicaoLivro.setText(String.valueOf(l.getEdicao()));
+    }
+
+    private void limpaCampos(){
+        etCodigoLivro.setText("");
+        etNomeLivro.setText("");
+        etQtdPaginasLivro.setText("");
+        etIsbnLivro.setText("");
+        etEdicaoLivro.setText("");
+        tvLivro.setText("");
     }
 }

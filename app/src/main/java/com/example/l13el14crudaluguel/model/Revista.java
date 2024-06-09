@@ -18,6 +18,6 @@ public class Revista extends Exemplar{
 
     @Override
     public String toString() {
-        return "Revista #"+getCodigo()+" "+getNome();
+        return "#"+getCodigo()+" "+getNome();
     }
 }
